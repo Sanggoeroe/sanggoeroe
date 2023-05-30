@@ -73,7 +73,7 @@ https://drive.google.com/file/d/1o4Gs7b8lLCKF2JMkZyc8bews0RQhLaWa/view?usp=shari
 
 ## Mentor
 
-Muhammad Furqan - Android/Mobile Development
+Muhammad Furqan - Android/Mobile Development <br>
 Munawir Fikri Al-akbari - Cloud/Web/Backend/Frontend, Project Management
 
 ## License
