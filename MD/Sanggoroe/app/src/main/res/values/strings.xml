@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sanggoroe</string>
+    <string name="enterEmail">Email</string>
+    <string name="errorEmail">invalid email</string>
+    <string name="enterPassword">Password</string>
+    <string name="errorPassword">Invalid Password</string>
+    <string name="login">Login</string>
+    <string name="default_web_client_id" translatable="false">510167583001-vhipa1bc4vroji17c6iuovh8inlu12ln.apps.googleusercontent.com</string>
+    <string name="entarUsername">Username</string>
+</resources>
