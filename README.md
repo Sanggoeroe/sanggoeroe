@@ -1,7 +1,7 @@
 ![team](https://img.shields.io/badge/Team%20ID-C23--PC626-green)
 [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/munawirfikri/saveoury/blob/main/LICENSE)
 
-# Sanggoroe
+# Sanggoeroe
 
 <p align="center">
   <img src="https://github.com/sanggoroe/sanggoroe/assets/88946724/8e41a670-b785-4acd-a210-d7a71e02e78c">
