@@ -110,7 +110,7 @@ class SkillRequest(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"Sanggoeroe": "Welcome My friend"}
+    return {"Sanggoeroe": "Welcome My Brother"}
 
 @app.post("/recommend-positions")
 # def recommend_positions(skill_request: SkillRequest):
