@@ -5,6 +5,7 @@ from tensorflow.keras.models import load_model
 import pandas as pd
 from pydantic import BaseModel
 from sklearn.metrics.pairwise import cosine_similarity
+import mysql.connector
 
 app = Flask(__name__)
 
@@ -15,9 +16,23 @@ model = Word2Vec.load("word2vec.model")
 neural_network_model = load_model("rec_model.h5")
 
 # Load dataset jobs
-data = pd.read_csv("job.csv")
+# data = pd.read_csv("job.csv")
+db_connection = mysql.connector.connect(
+    host="35.187.230.20",
+    user="root",
+    password="root",
+    database="Dataset"
+)
 
-cols = list(['JobID']+['Posisi']+ ['Skill 1']+ ['Skill 2']+ ['Skill 3'])
+# # Query untuk mengambil data jobs
+query = "SELECT JobID, Posisi, Kualifikasi, Jenjang, Kota, Deskripsi, `Skill1`, `Skill2`, `Skill3` FROM Jobs"
+# # Mengambil data jobs dari MySQL ke DataFrame
+data = pd.read_sql(query, con=db_connection)
+# # Menutup koneksi ke database
+db_connection.close()
+
+
+cols = list(['JobID']+['Posisi']+ ['Skill1']+ ['Skill2']+ ['Skill3'])
 final_lowongan = data[cols]
 final_lowongan.columns = ['Job.ID','Position','Skill1','Skill2','Skill3']
 
