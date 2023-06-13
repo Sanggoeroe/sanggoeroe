@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "04729a75-b6ec-4e58-92c3-2e9ecd73efdf",
+		"name": "Job Recommendation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20123935"
+	},
+	"item": [
+		{
+			"name": "Recommend-jobs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "skill1",
+							"value": "biology",
+							"type": "text"
+						},
+						{
+							"key": "skill2",
+							"value": "communication",
+							"type": "text"
+						},
+						{
+							"key": "skill3",
+							"value": "collaboration",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/recommend-positions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"recommend-positions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
