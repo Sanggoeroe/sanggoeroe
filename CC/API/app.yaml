@@ -1,0 +1,8 @@
+runtime: python39
+
+runtime_config:
+  python_version: 3.9
+
+instance_class: F4_1G
+
+service: deploy-md
