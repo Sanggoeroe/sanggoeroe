@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # Membuat koneksi ke database
 db_connection = mysql.connector.connect(
-    host="35.187.230.20",
-    user="gofar452",
-    password="Buatapaans1h",
-    database="User"
+    host="host",
+    user="user",
+    password="password",
+    database="database"
 )
 
 @app.route('/Register', methods=['POST'])def register():
