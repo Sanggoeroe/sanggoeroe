@@ -10,6 +10,7 @@
 
 
     // material3 colors
+    <color name="skill_background_color">#FF4081</color>
     <color name="seed">#6750A4</color>
     <color name="md_theme_light_primary">#6750A4</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>

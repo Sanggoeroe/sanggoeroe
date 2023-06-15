@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/company_logo"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:text="@string/skill_user"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/experience_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_name"
+        android:layout_toEndOf="@+id/company_logo"
+        android:layout_marginStart="10dp"
+        android:text="@string/experience_description"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/experience_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/experience_description"
+        android:layout_toEndOf="@+id/company_logo"
+        android:layout_marginStart="10dp"
+        android:text="@string/experience_duration"
+        android:textSize="14sp" />
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "510167583001",
+    "firebase_url": "https://final-project-387005-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "final-project-387005",
     "storage_bucket": "final-project-387005.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.capstone.sanggoroe"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "510167583001-uu0speg2m3te2vl2ujs4k7ooil5v9pul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.sanggoroe",
+            "certificate_hash": "5baec0be34e1437c723eb0324caf3d8f42e95eee"
+          }
+        },
+        {
+          "client_id": "510167583001-vhipa1bc4vroji17c6iuovh8inlu12ln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAtJNriuzEwqp78_Ujxwc_RRIp8cXTwGEU"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510167583001-vhipa1bc4vroji17c6iuovh8inlu12ln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

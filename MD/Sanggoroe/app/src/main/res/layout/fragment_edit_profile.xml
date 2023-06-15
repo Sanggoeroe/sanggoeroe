@@ -1,0 +1,73 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Foto Profil -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/ic_person"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="showImagePickerOptions"/>
+
+    <!-- Nama Pengguna -->
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Nama Pengguna"
+        android:inputType="text"/>
+
+    <!-- Deskripsi Pengguna -->
+    <EditText
+        android:id="@+id/edit_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi Pengguna"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="16dp"
+        android:minLines="3"
+        android:maxLines="5"/>
+
+    <!-- Dropdown Skill 1 -->
+    <Spinner
+        android:id="@+id/skill1_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:prompt="@string/skill1_prompt"/>
+
+    <!-- Dropdown Skill 2 -->
+    <Spinner
+        android:id="@+id/skill2_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:prompt="@string/skill2_prompt"/>
+
+    <!-- Dropdown Skill 3 -->
+    <Spinner
+        android:id="@+id/skill3_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:prompt="@string/skill3_prompt"/>
+
+    <!-- Tombol Simpan -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
