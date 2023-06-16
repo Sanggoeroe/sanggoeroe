@@ -26,6 +26,7 @@ import com.capstone.sanggoroe.data.Constants.REQUEST_CODE_CAMERA
 import com.capstone.sanggoroe.data.Constants.REQUEST_CODE_GALLERY
 import com.capstone.sanggoroe.databinding.FragmentPostBinding
 import com.capstone.sanggoroe.model.Post
+import com.capstone.sanggoroe.model.RecommendResponseItem
 import com.capstone.sanggoroe.model.UserProfile
 import com.capstone.sanggoroe.view.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +44,7 @@ class PostFragment : Fragment() {
     private val binding get() = _binding!!
     private var imageUri: Uri? = null
     private lateinit var postImage: String
+    private var recommendResponseItem: RecommendResponseItem? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,10 +53,13 @@ class PostFragment : Fragment() {
     ): View {
 
         _binding = FragmentPostBinding.inflate(inflater, container, false)
-        binding.root
 
         // Set up the spinner
-        val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, Constants.SKILLS)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.simple_spinner_item,
+            Constants.SKILLS
+        )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.skillSpinner.adapter = adapter
         binding.skillSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -68,20 +73,33 @@ class PostFragment : Fragment() {
             }
         }
 
-
         binding.cameraButton.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_DENIED){
-                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), PERMISSION_CODE_CAMERA)
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.CAMERA
+                ) == PackageManager.PERMISSION_DENIED
+            ) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(Manifest.permission.CAMERA),
+                    PERMISSION_CODE_CAMERA
+                )
             } else {
                 openCamera()
             }
         }
 
         binding.galleryButton.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_DENIED){
-                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_CODE_GALLERY)
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_DENIED
+            ) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    PERMISSION_CODE_GALLERY
+                )
             } else {
                 openGallery()
             }
@@ -100,7 +118,8 @@ class PostFragment : Fragment() {
     }
 
     private fun uploadImage() {
-        val ref = FirebaseStorage.getInstance().reference.child("post_images/${UUID.randomUUID()}")
+        val ref =
+            FirebaseStorage.getInstance().reference.child("post_images/${UUID.randomUUID()}")
         imageUri?.let {
             ref.putFile(it)
                 .addOnSuccessListener {
@@ -117,14 +136,26 @@ class PostFragment : Fragment() {
     }
 
     private fun savePost() {
-        val post = Post(
-            uid = FirebaseAuth.getInstance().currentUser?.uid!!,
-            title = binding.titleEditText.text.toString(),
-            content = binding.contentEditText.text.toString(),
-            image = postImage,
-            skills = binding.skillSpinner.selectedItem.toString(),
-            timestamp = System.currentTimeMillis(),
-        )
+        val post = recommendResponseItem?.let { recommendItem ->
+            Post(
+                uid = FirebaseAuth.getInstance().currentUser?.uid!!,
+                title = binding.titleEditText.text.toString(),
+                content = binding.contentEditText.text.toString(),
+                image = postImage,
+                skills = recommendItem.position,
+                timestamp = System.currentTimeMillis(),
+                jobID = recommendItem.jobID
+            )
+        } ?: run {
+            Post(
+                uid = FirebaseAuth.getInstance().currentUser?.uid!!,
+                title = binding.titleEditText.text.toString(),
+                content = binding.contentEditText.text.toString(),
+                image = postImage,
+                skills = binding.skillSpinner.selectedItem.toString(),
+                timestamp = System.currentTimeMillis()
+            )
+        }
 
         // Generate a new random document ID
         val docId = FirebaseFirestore.getInstance().collection("posts").document().id
@@ -141,9 +172,6 @@ class PostFragment : Fragment() {
                 }
             }
     }
-
-
-
 
     private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -199,7 +227,6 @@ class PostFragment : Fragment() {
         super.onPause()
         (activity as MainActivity).setBottomNavigationVisibility(View.VISIBLE)
     }
-
 
     companion object {
         private const val TAG = "PostFragment"

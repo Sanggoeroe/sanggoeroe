@@ -7,7 +7,7 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiService {
-    @POST("recommend-positions")
+    @POST("recJob")
     fun getRecommendations(
         @Query("skills") skills: String
     ): Call<RecommendResponse>

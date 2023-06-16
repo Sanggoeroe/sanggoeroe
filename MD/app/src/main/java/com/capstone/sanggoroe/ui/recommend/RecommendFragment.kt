@@ -1,16 +1,14 @@
-package com.capstone.sanggoroe.ui.home
+package com.capstone.sanggoroe.ui.recommend
 
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.capstone.sanggoroe.R
 import com.capstone.sanggoroe.adapter.PostAdapter
 import com.capstone.sanggoroe.data.api.ApiConfig
-import com.capstone.sanggoroe.databinding.FragmentHomeBinding
+import com.capstone.sanggoroe.databinding.FragmentRecommendBinding
 import com.capstone.sanggoroe.model.Post
 import com.capstone.sanggoroe.model.RecommendResponse
 import com.capstone.sanggoroe.model.UserProfile
@@ -21,13 +19,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeFragment : Fragment() {
+class RecommendFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRecommendBinding? = null
     private lateinit var auth: FirebaseAuth
     private val binding get() = _binding!!
 
-    private val postList = mutableListOf<Post>()
+    private val recommendedPosts = mutableListOf<Post>()
     private lateinit var postAdapter: PostAdapter
     private lateinit var userSkills: List<String>
 
@@ -36,17 +34,23 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentRecommendBinding.inflate(inflater, container, false)
         auth = FirebaseAuth.getInstance()
+
+        userSkills = emptyList() // Inisialisasi userSkills dengan list kosong
+
+        postAdapter = PostAdapter(requireContext(), recommendedPosts, userSkills)
+        binding.rvListRecommendation.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvListRecommendation.adapter = postAdapter
 
         return binding.root
     }
+
 
     override fun onResume() {
         super.onResume()
         loadData()
     }
-
 
     private fun loadData() {
         val user = auth.currentUser
@@ -58,10 +62,6 @@ class HomeFragment : Fragment() {
                     val userProfile = document.toObject(UserProfile::class.java)
                     if (userProfile != null) {
                         userSkills = listOfNotNull(userProfile.skill1, userProfile.skill2, userProfile.skill3)
-                        postAdapter = PostAdapter(requireContext(), postList, userSkills)
-                        binding.rvListHome.layoutManager = LinearLayoutManager(requireContext())
-                        binding.rvListHome.adapter = postAdapter
-                        loadPosts()
                         loadRecommendations(userProfile.skill1, userProfile.skill2, userProfile.skill3)
                     }
                 }
@@ -71,16 +71,17 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     private fun loadRecommendations(skill1: String?, skill2: String?, skill3: String?) {
         val skills = listOfNotNull(skill1, skill2, skill3).joinToString(",")
 
         ApiConfig.apiService.getRecommendations(skills).enqueue(object :
             Callback<RecommendResponse> {
             override fun onResponse(call: Call<RecommendResponse>, response: Response<RecommendResponse>) {
-                val recommendResponse = response.body()
-                Log.d(TAG, "onResponse: $response")
-                Toast.makeText(requireContext(), "Berikut adalah rekomendasi yang sesuai dengan skill Anda", Toast.LENGTH_LONG).show()
+                if(response.isSuccessful) {
+                    val recommendResponse = response.body()?.recommendResponse ?: emptyList()
+                    loadPosts(recommendResponse.map { it.jobID })
+                    Toast.makeText(requireContext(), "Berikut adalah rekomendasi yang sesuai dengan skill Anda", Toast.LENGTH_LONG).show()
+                }
             }
 
             override fun onFailure(call: Call<RecommendResponse>, t: Throwable) {
@@ -90,8 +91,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-
-    private fun loadPosts() {
+    private fun loadPosts(recommendPostIds: List<Int>) {
         FirebaseFirestore.getInstance().collection("posts")
             .orderBy("timestamp", Query.Direction.DESCENDING)
             .get()
@@ -99,7 +99,9 @@ class HomeFragment : Fragment() {
                 val newPostList = mutableListOf<Post>()
                 for (document in documents) {
                     val post = document.toObject(Post::class.java)
-                    newPostList.add(post)
+                    if (post.jobID in recommendPostIds) {
+                        newPostList.add(post)
+                    }
                 }
                 postAdapter.setItem(newPostList)
             }
@@ -108,43 +110,9 @@ class HomeFragment : Fragment() {
             }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.bottom_nav_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
-            R.id.navigation_home -> {
-                findNavController().navigate(R.id.navigation_home)
-                true
-            }
-            R.id.navigation_chat -> {
-                findNavController().navigate(R.id.navigation_chat)
-                true
-            }
-            R.id.navigation_post -> {
-                findNavController().navigate(R.id.navigation_post)
-                true
-            }
-            R.id.navigation_recommendation -> {
-                findNavController().navigate(R.id.navigation_recommendation)
-                true
-            }
-            R.id.navigation_profile -> {
-                findNavController().navigate(R.id.navigation_profile)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    // ... // The rest of your code stays the same
 
     companion object {
-        private const val TAG = "HomeFragment"
+        private const val TAG = "RecommendFragment"
     }
 }

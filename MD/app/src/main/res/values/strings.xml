@@ -40,4 +40,6 @@
     <string name="skill2_prompt">Skill 2</string>
     <string name="skill1_prompt">Skill 1</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="title_recommendation">Recommendation</string>
+    <string name="fragment_detail">Detail Fragment</string>
 </resources>
