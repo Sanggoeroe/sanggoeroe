@@ -26,8 +26,8 @@ This project requires several resources to be prepared and installed on the loca
 * Android Studio
 
 #### Backend Data Store API
-* Python 39
-* MySQL 5.7
+* Python 3.9
+* MySQL  5.7
 
 #### Machine Learning API
 * Python
