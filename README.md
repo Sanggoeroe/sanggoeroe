@@ -60,12 +60,12 @@ cd sanggoeroe
 
 ### Screenshots
 
-![authentication page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/5acdf064-36b1-4410-ac01-dd769e671da9)
-![home page]()
-![new post page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/07895510-36c5-46e5-8401-0d064cafece1)
-![profile page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/9fb54ae1-ffe2-450b-9430-40ef80d144e8)
-
-
+<div style="display:flex;">
+  <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/5acdf064-36b1-4410-ac01-dd769e671da9" alt="authentication" width="15%">
+  <img src="" alt="home page" width="15%">
+  <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/07895510-36c5-46e5-8401-0d064cafece1" alt="new post page" width="15%">
+  <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/9fb54ae1-ffe2-450b-9430-40ef80d144e8" alt="profile page" width="15%">
+</div>
 
 ## Team Members
 
