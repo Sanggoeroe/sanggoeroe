@@ -18,38 +18,43 @@
 
 Based on experiences and realities that occur in society, many cases are found related to the lack of teachers in several regions. This is an irony considering the high number of graduates with a Bachelor of Education degree (S. Pd) in Indonesia every year. Certainly, this is caused by several factors such as the lack of facilities and teacher allowances in certain regions, uneven distribution of graduates, and even the problem that fresh graduates do not understand the career path and how to start their teaching career. Information related to job vacancies for education graduates is usually spread by word of mouth from people closest to them. This will certainly be a problem because not everyone will have connections in the education field. Sanggoroe, a platform to search and provide information related to teaching job vacancies, can help students, fresh graduates, or anyone who wants to gain teaching experience by providing information related to teaching job vacancies. Users can post a job vacancy or search for a job vacancy. Therefore, by creating this application, we hope to help the government in efforts to improve the quality of education in all regions. 
 
-<!-- ## Getting Started
+## Getting Started
 
 ### Dependencies
 This project requires several resources to be prepared and installed on the local computer, including:
 #### Android
 * Android Studio
 #### Backend Data Store API
-* PHP Version 7.4
-* MySQL 5.*
-* Localhost (XAMPP/Laragon) or just use this command at the folder project:
+* Python 39
+* MySQL 5.7
+* Localhost (XAMPP/Laragon) or just use this command at the folder project: 
 ```
 php artisan serve
 ```
 #### Machine Learning API
 * Python
-* Docker
+* Flask API
 
 ### Installing
 
 #### 1. Clone the repository
 ```
-git clone https://github.com/munawirfikri/saveoury.git
-cd saveoury
+git clone https://github.com/Sanggoeroe/sanggoeroe.git
+cd sanggoeroe
 ```
 #### 2. Run the APP
 ##### Android
 - Open android studio
 - Open project folder -> saveoury -> android
+
 ##### Backend
-- Start phpmyadmin, mysql at your localhost with XAMPP or Laragon or etc.
-- Put the 'backend' folder in htdocs folder(XAMPP) or www folder(Laragon) and change the folder name with yours (example: saveoury-backend)
-- run the localhost in your browser. when you use XAMPP just type at your browser "http://localhost/{nama_folder_baru}" or when you use laragon just type "http://{nama_folder_baru}.test
+- Open Google Cloud Platform (GCP) > choose your project at your GCP account > open your cloud shell and open editor :
+    - Put the CC/API folder in your account in open editor
+- run this command in your cloud shell :
+    - cd API
+    - pip install -r requirements.txt
+    - gcloud app deploy (select your region and choose "y") (to deploy APP engine)
+    - gcloud app browse (to check endpoint)
 
 #### Executing App
 * Download the APK file here:
