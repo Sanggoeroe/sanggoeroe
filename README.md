@@ -1,5 +1,5 @@
 ![team](https://img.shields.io/badge/Team%20ID-C23--PC626-green)
-[![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/munawirfikri/saveoury/blob/main/LICENSE)
+[![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/Sanggoeroe/sanggoeroe/blob/main/LICENSE)
 
 # Sanggoeroe
 
@@ -9,8 +9,8 @@
   <p align="center">
    <b>Project List</b> <br>
    <a href="https://github.com/sanggoroe/sanggoroe/tree/main/MD">Mobile Development</a> | 
-   <a href="https://github.com/munawirfikri/saveoury/tree/main/backend">Backend</a> | 
-   <a href="https://github.com/munawirfikri/saveoury/tree/main/food-validator%20(ML)">ML</a>
+   <a href="https://github.com/sanggoroe/sanggoroe/tree/main/CC">Cloud Computing</a> | 
+   <a href="https://github.com/sanggoroe/sanggoroe/tree/main/ML">Machine Learning</a>
   </p>
 </p>
 
@@ -24,13 +24,11 @@ Based on experiences and realities that occur in society, many cases are found r
 This project requires several resources to be prepared and installed on the local computer, including:
 #### Android
 * Android Studio
+
 #### Backend Data Store API
 * Python 39
 * MySQL 5.7
-* Localhost (XAMPP/Laragon) or just use this command at the folder project: 
-```
-php artisan serve
-```
+
 #### Machine Learning API
 * Python
 * Flask API
@@ -45,7 +43,7 @@ cd sanggoeroe
 #### 2. Run the APP
 ##### Android
 - Open android studio
-- Open project folder -> saveoury -> android
+- Open project folder -> sanggoeroe -> MD
 
 ##### Backend
 - Open Google Cloud Platform (GCP) > choose your project at your GCP account > open your cloud shell and open editor :
@@ -58,14 +56,16 @@ cd sanggoeroe
 
 #### Executing App
 * Download the APK file here:
-https://drive.google.com/file/d/1o4Gs7b8lLCKF2JMkZyc8bews0RQhLaWa/view?usp=sharing
+
 
 ### Screenshots
 
-![authentication page](https://user-images.githubusercontent.com/46962764/121106218-cb043200-c82f-11eb-85d6-9801b4dccdb8.jpg)
-![home page](https://user-images.githubusercontent.com/46962764/121106237-d35c6d00-c82f-11eb-9935-eba3e7f3d25b.jpg)
-![new post page](https://user-images.githubusercontent.com/46962764/121228118-8ec7e480-c8b6-11eb-9f34-f2b6436b2328.jpg)
-![profile page](https://user-images.githubusercontent.com/46962764/121106269-e4a57980-c82f-11eb-95e1-f69dbd7271ca.jpg) -->
+![authentication page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/5acdf064-36b1-4410-ac01-dd769e671da9)
+![home page]()
+![new post page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/07895510-36c5-46e5-8401-0d064cafece1)
+![profile page](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/9fb54ae1-ffe2-450b-9430-40ef80d144e8)
+
+
 
 ## Team Members
 
@@ -87,4 +87,4 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Acknowledgments
 
-[![bangkit](https://user-images.githubusercontent.com/46962764/121107582-5f6f9400-c832-11eb-84df-83255d7f956f.png)](https://grow.google/intl/id_id/bangkit/)
+[![bangkit](https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/97c74713-2f52-4a4d-90fa-75d5d5228f81)](https://grow.google/intl/id_id/bangkit/)
