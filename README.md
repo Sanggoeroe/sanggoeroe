@@ -56,13 +56,13 @@ cd sanggoeroe
 
 #### Executing App
 * Download the APK file here:
-
+https://drive.google.com/file/d/1-nYkgIAf627mHbrL5ujaoWGiQID4sQDg/view?usp=sharing
 
 ### Screenshots
 
 <div style="display:flex;">
   <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/5acdf064-36b1-4410-ac01-dd769e671da9" alt="authentication" width="15%">
-  <img src="" alt="home page" width="15%">
+  <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/3361cc1d-163b-4535-9f57-aa983907543f" alt="home page" width="15%">
   <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/07895510-36c5-46e5-8401-0d064cafece1" alt="new post page" width="15%">
   <img src="https://github.com/Sanggoeroe/sanggoeroe/assets/88946724/9fb54ae1-ffe2-450b-9430-40ef80d144e8" alt="profile page" width="15%">
 </div>
