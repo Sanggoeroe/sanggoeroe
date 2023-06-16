@@ -57,6 +57,7 @@ cd sanggoeroe
 #### Executing App
 * Download the APK file here:
 https://drive.google.com/file/d/1-nYkgIAf627mHbrL5ujaoWGiQID4sQDg/view?usp=sharing
+* You have to make a profile first after login
 
 ### Screenshots
 
